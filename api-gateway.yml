@@ -34,12 +34,6 @@ spring:
           filters:
             - StripPrefix=1
             
-        - id: admin-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/admin/**
-          filters:
-            - StripPrefix=0
       globalcors:
         cors-configurations:
           '[/**]':
