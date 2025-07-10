@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: restaurant-service
+  config:
+    import: optional:configserver:http://localhost:8888
   datasource:
     url: jdbc:postgresql://localhost:${POSTGRES_PORT:5432}/bytebites
     username: ${POSTGRES_USER:postgres}
@@ -58,4 +60,4 @@ resilience4j:
     instances:
       restaurantService:
         max-attempts: 3
-        wait-duration: 1000
+        wait-duration: 1000 

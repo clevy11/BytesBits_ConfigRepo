@@ -2,11 +2,11 @@ server:
   port: 8080
 
 spring:
+  config:
+    import: 'optional:configserver:'
   application:
     name: api-gateway
   cloud:
-    config:
-      uri: http://localhost:8888
     gateway:
       discovery:
         locator:
@@ -46,7 +46,7 @@ spring:
             allowed-origins: "*"
             allowed-methods: "*"
             allowed-headers: "*"
-            allow-credentials: true
+            allow-credentials: false
 
 eureka:
   client:
@@ -63,4 +63,4 @@ management:
         include: health,info,gateway
   endpoint:
     health:
-      show-details: always
+      show-details: always 
